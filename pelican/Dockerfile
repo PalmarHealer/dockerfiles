@@ -1,6 +1,8 @@
 FROM php:8.4-fpm
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update
+
+RUN apt-get install -y \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
@@ -14,22 +16,25 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip \
     curl \
-    git \
-    && docker-php-ext-configure gd \
-    && docker-php-ext-install -j$(nproc) \
-        gd \
-        mysqli \
-        mbstring \
-        bcmath \
-        xml \
-        curl \
-        zip \
-        intl \
-        pdo_sqlite \
-        xsl \
-        opcache \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    git
+
+RUN docker-php-ext-configure gd
+
+RUN docker-php-ext-install -j$(nproc) \
+    gd \
+    mysqli \
+    mbstring \
+    bcmath \
+    xml \
+    curl \
+    zip \
+    intl \
+    pdo_sqlite \
+    xsl \
+    opcache
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 RUN mkdir -p /run/php /var/www/pelican
 
