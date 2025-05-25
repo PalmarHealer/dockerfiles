@@ -11,4 +11,4 @@ if [ -z "$(ls -A /var/www/pelican)" ]; then
 fi
 
 php-fpm -D
-#nginx -g "daemon off;"
+nginx -g "daemon off;"
