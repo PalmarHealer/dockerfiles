@@ -6,8 +6,8 @@ if [ -z "$(ls -A /var/www/pelican)" ]; then
     cd /var/www/pelican
     COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
     php artisan p:environment:setup
-    chmod -R 755 storage/* bootstrap/cache/
-    chown -R www-data:www-data /var/www/pelican
+    #chmod -R 755 storage/* bootstrap/cache/
+    #chown -R www-data:www-data /var/www/pelican
 fi
 
 php-fpm -D
