@@ -20,7 +20,7 @@ RUN mkdir -p /usr/local/etc/php /etc/nginx/sites-enabled \
  && curl -fsSL -o /start.sh https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/start.sh \
  && chmod +x /start.sh
 
-WORKDIR /var/www/pelican
+WORKDIR /
 
 EXPOSE 80
 
