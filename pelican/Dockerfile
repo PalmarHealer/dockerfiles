@@ -13,10 +13,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apk add --no-cache nginx curl tar unzip bash
 
 # Configurations files
-RUN curl -o /usr/local/etc/php/php.ini https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/php.ini \
- && curl -o /etc/nginx/nginx.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/nginx.conf \
- && curl -o /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/default.conf \
- && curl -o /start.sh https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/start.sh \
+RUN mkdir -p /usr/local/etc/php /etc/nginx/conf.d \
+ && curl -fsSL -o /usr/local/etc/php/php.ini https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/php.ini \
+ && curl -fsSL -o /etc/nginx/nginx.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/nginx.conf \
+ && curl -fsSL -o /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/default.conf \
+ && curl -fsSL -o /start.sh https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/start.sh \
  && chmod +x /start.sh
 
 WORKDIR /var/www/pelican
