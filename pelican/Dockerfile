@@ -10,7 +10,7 @@ RUN install-php-extensions \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # NGINX and Tools
-RUN apk add --no-cache nginx curl tar unzip bash nodejs npm
+RUN apk add --no-cache nginx curl tar unzip bash
 
 # Configurations files
 RUN mkdir -p /usr/local/etc/php /etc/nginx/sites-enabled \
