@@ -14,10 +14,10 @@ RUN apk add --no-cache nginx curl tar unzip bash
 
 # Configurations files
 RUN mkdir -p /usr/local/etc/php /etc/nginx/sites-enabled \
- && curl -fsSL -o /usr/local/etc/php/php.ini https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/php.ini \
- && curl -fsSL -o /etc/nginx/nginx.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/nginx.conf \
- && curl -fsSL -o /etc/nginx/sites-enabled/pelican.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/pelican.conf \
- && curl -fsSL -o /start.sh https://raw.githubusercontent.com/PalmarHealer/dockerfiles/main/pelican/start.sh \
+ && curl -fsSL -o /usr/local/etc/php/php.ini https://raw.githubusercontent.com/PalmarHealer/dockerfiles/refs/heads/main/pelican/php.ini \
+ && curl -fsSL -o /etc/nginx/nginx.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/refs/heads/main/pelican/nginx.conf \
+ && curl -fsSL -o /etc/nginx/sites-enabled/pelican.conf https://raw.githubusercontent.com/PalmarHealer/dockerfiles/refs/heads/main/pelican/pelican.conf \
+ && curl -fsSL -o /start.sh https://raw.githubusercontent.com/PalmarHealer/dockerfiles/refs/heads/main/pelican/start.sh \
  && chmod +x /start.sh
 
 WORKDIR /
